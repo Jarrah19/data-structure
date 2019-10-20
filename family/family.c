@@ -246,7 +246,7 @@ void modifyMember(FamilyMemberAddr memberAddr, char name[]) {
     modifyMember(memberAddr->sibling, name);
 }
 
-void preDeleteMember(FamilyMemberAddr memberAddr, char name[]) {
+void deleteMember(FamilyMemberAddr memberAddr, char name[]) {
     if (memberAddr == NULL) {
         return;
     }
@@ -268,8 +268,8 @@ void preDeleteMember(FamilyMemberAddr memberAddr, char name[]) {
         }
 
     }
-    preDeleteMember(memberAddr->child, name);
-    preDeleteMember(memberAddr->sibling, name);
+    deleteMember(memberAddr->child, name);
+    deleteMember(memberAddr->sibling, name);
 
 }
 
@@ -354,7 +354,7 @@ int main(void) {
                 c = 1; break;
             case 5: printf("请输⼊成员姓名：");
                 scanf("%s", input_name);
-                preDeleteMember(ancestor, input_name);
+                deleteMember(ancestor, input_name);
                 if (c) printf("查无此人\n");
                 else {
                     getArray(ancestor);
