@@ -92,7 +92,6 @@ void fileAddChild(FamilyMemberAddr memberAddr) {
 
     memberAddr->child = memberCreate();
     memberAddr->child->parent = memberAddr;
-    memberAddr->child->older_sibling = NULL;
 }
 
 void fileAddSibling(FamilyMemberAddr memberAddr) {
